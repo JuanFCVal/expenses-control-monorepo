@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule } from '@nestjs/config';
 import { CategoriesModule } from './categories/categories.module';
 import { Category } from './categories/entities/category.entity';
+import { MovementsModule } from './movements/movements.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { Category } from './categories/entities/category.entity';
     }),
     TypeOrmModule.forFeature([Category]),
     CategoriesModule,
+    MovementsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

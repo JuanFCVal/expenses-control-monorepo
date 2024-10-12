@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { BadRequestException, Injectable } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -34,16 +34,20 @@ export class CategoriesService {
     }
   }
 
-  async findOne(id: number) {
+  async findOne(id: number, fetchChildren = true) {
     try {
-      const category = await this.categoryRepository.findOne({
+      const query = {
         where: { id },
-        relations: ['children'],
-      });
+        relations: fetchChildren ? ['children'] : [],
+      };
+      const category = await this.categoryRepository.findOne(query);
+      if (!category) {
+        throw new BadRequestException('Category not found');
+      }
       return category;
     } catch (e) {
       console.log(e);
-      throw new Error('Error fetching category');
+      throw new BadRequestException('Category not found');
     }
   }
 
