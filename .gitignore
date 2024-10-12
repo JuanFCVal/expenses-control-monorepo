@@ -2,6 +2,7 @@
 /apps/*/node_modules
 /apps/*/dist
 /apps/*/build
+/apps/*/.env
 
 /apps/*/logs
 /apps/*/*.log
@@ -11,3 +12,5 @@
 /apps/*/coverage
 
 /.turbo
+
+.env

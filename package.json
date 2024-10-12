@@ -17,5 +17,8 @@
   "license": "ISC",
   "devDependencies": {
     "turbo": "^1.13.3"
+  },
+  "dependencies": {
+    "@nestjs/config": "^3.2.3"
   }
 }
