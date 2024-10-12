@@ -3,7 +3,6 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CategoriesService } from 'src/categories/categories.service';
 import { Repository } from 'typeorm';
 import { CreateMovementDto } from './dto/create-movement.dto';
-import { UpdateMovementDto } from './dto/update-movement.dto';
 import { Movement } from './entities/movement.entity';
 
 @Injectable()
